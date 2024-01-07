@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation App</h1>
+        <form action="/recommend" method="post">
+            <label for="movie_name">Select a movie:</label>
+            <select id="movie_name" name="movie_name" required>
+                {% for movie in movie_list %}
+                    <option value="{{ movie }}">{{ movie }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
